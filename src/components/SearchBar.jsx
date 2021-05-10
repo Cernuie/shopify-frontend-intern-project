@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
+
 import useDelay from "../hooks/useDelay";
 
 export default function SearchBar(props) {
   const [value, setValue] = useState("");
-  const term = useDelay(value, 2000);
+  const term = useDelay(value, 100);
 
   const onSearch = useCallback(props.onSearch, [term]);
 
@@ -18,7 +19,7 @@ export default function SearchBar(props) {
         onSubmit={(event) => event.preventDefault()}
       >
         <input className="input-box-style"
-          placeholder="Search Movies"
+          placeholder="Search Media"
           name="search"
           type="text"
           value={value}

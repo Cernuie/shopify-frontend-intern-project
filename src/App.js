@@ -17,9 +17,6 @@ function App() {
     <main>
     <div>
       <h1>Movie Awards!</h1>
-      <div>    
-        <SearchBar onSearch={(term) => setTerm(term)} />
-      </div>
      <Tabs> 
        <div label="Search Results"> 
          <SearchResults
