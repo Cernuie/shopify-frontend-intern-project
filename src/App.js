@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+import Tabs from "./components/Tabs"; 
+
+import SearchBar from "./components/SearchBar"
+import SearchResults from "./components/SearchResults"
+import Nominations from "./components/Nominations"
+
+import React, { useState } from "react";
+
 import './App.css';
 
 function App() {
+  const [nominations, setNominations] = useState([])
+  const [term, setTerm] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <main>
+    <div>
+      <h1>Movie Awards!</h1>
+      <div>    
+        <SearchBar onSearch={(term) => setTerm(term)} />
+      </div>
+     <Tabs> 
+       <div label="Search Results"> 
+         <SearchResults
+         nominations={nominations}
+         setNominations={setNominations}
+         />
+       </div> 
+       <div label="Nominations"> 
+         <Nominations
+         nominations={nominations}
+         />
+       </div> 
+     </Tabs> 
     </div>
+
+    </main>
   );
 }
 
