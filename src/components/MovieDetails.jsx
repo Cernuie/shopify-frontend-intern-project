@@ -1,26 +1,23 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 
 import './MovieDetails.css'
+//import useNominationsData from "hooks/useNominationsData"
 
 export default function MovieDetails(props) {
-  let history = useHistory();
-
-  function showMovie(id) {
-    history.push(`/movie/${id}`);
-  }
-
+  // const {nominations, setNominations} = useNominationsData();
   return (
     <article className="Movie">
       <div>
         <img
-          onClick={() => showMovie(props.imdbID)}
           className="Movie__thumbnail"
           src={props.Poster}
           alt="Movie"
         />
         <div className="Movie__name">{props.Title}</div>
         <div className="Movie__year">{props.Year}</div>
+        <div className="nomination">  
+        <button onClick={() => props.handleNominations(props.Title)}>Nominate!</button>
+        </div>
       </div>
     </article>
   );

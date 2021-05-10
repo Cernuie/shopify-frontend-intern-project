@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import SearchBar from "./SearchBar";
 import axios from "axios";
 import Results from "./Results";
+import "./MovieSearch.css"
 
 
 const API_KEY = process.env.OMDB_KEY; 
@@ -9,6 +10,8 @@ const API_KEY = process.env.OMDB_KEY;
 export default function Nominations(props) {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
+
+  
   useEffect(() => {
     const apiUrl = `https://www.omdbapi.com/?s=${term}?&type=movie&apikey=9c24beab`;
     //fix dotenv later
@@ -29,7 +32,9 @@ return (
     <SearchBar onSearch={(term) => setTerm(term)} />
     </div>
     <div className="movieStyles">
-      <Results results={results} />
+      <Results results={results}
+         handleNominations={props.handleNominations}
+         />
     </div>
   </Fragment>
 );

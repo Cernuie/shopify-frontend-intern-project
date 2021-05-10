@@ -3,3 +3,9 @@
   width: 20em;
   height: 30em;
 }
+
+.nomination {
+  margin: auto;
+  width: 50%;
+  padding-bottom: 5%;
+}
